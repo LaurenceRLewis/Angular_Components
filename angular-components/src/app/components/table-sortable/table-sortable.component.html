@@ -1,0 +1,62 @@
+<table class="table">
+    <caption class="caption">
+      Development Progress Table
+      <span
+        class="captionText"
+        [attr.role]="addRoleStatus === 'Status Role' ? 'status' : null"
+      >
+        <ng-container *ngIf="isTableSorted(); else defaultCaption">
+          {{ customCaptionText }}
+          <strong>{{ headers[sortedColumn().index!] }}</strong>
+          {{ sortedColumn().ascending ? 'ascending' : 'descending' }}
+        </ng-container>
+        <ng-template #defaultCaption>Sort table data by column header name</ng-template>
+      </span>
+    </caption>
+  
+    <thead>
+      <tr>
+        <th
+          *ngFor="let header of headers; let i = index"
+          [attr.id]="getSanitizedId(header, i)"
+          [attr.scope]="includeScope ? 'col' : null"
+          class="th"
+          [attr.aria-sort]="getSortState(i)"
+        >
+          <ng-container *ngIf="sortable === 'Sort'; else staticHeader">
+            <button
+              class="button"
+              (click)="sortColumn(i)"
+              (mouseenter)="showChevron.set(i)"
+              (mouseleave)="showChevron.set(sortedColumn().index!)"
+              (focus)="showChevron.set(i)"
+              (blur)="showChevron.set(sortedColumn().index!)"
+              [attr.aria-description]="
+                includeAriaDescription &&
+                (showDescriptionAll === 'Yes' || sortedColumn().index !== i)
+                  ? ariaDescription
+                  : null
+              "
+            >
+              {{ header }}
+              <span
+                class="chevron"
+                [ngClass]="getChevronClass(i)"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </ng-container>
+          <ng-template #staticHeader>{{ header }}</ng-template>
+        </th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let row of tableData(); let rowIndex = index">
+        <td *ngFor="let cell of row; let cellIndex = index" class="td">
+          {{ cell }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

@@ -29,3 +29,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 To run Storybook manually, run ng run angular-accordion:storybook
 npm run storybook
 ng serve
+
+Build command: npm run build-storybook
+Publish directory: storybook-static
+Site name: angular-accessible-component-project
