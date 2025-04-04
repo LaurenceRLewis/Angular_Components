@@ -1,0 +1,70 @@
+<ng-container *ngIf="NamedRegionContainer === 'Contained in a named landmark region'; else noRegion">
+    <div role="region" [attr.aria-label]="'Accordion group for ' + groupName">
+      <ng-container *ngTemplateOutlet="accordionGroup"></ng-container>
+    </div>
+  </ng-container>
+  
+  <ng-template #noRegion>
+    <ng-container *ngTemplateOutlet="accordionGroup"></ng-container>
+  </ng-template>
+  
+  <ng-template #accordionGroup>
+    <h2 [attr.id]="groupName + '-heading'">
+      {{ groupName.charAt(0).toUpperCase() + groupName.slice(1) }}
+    </h2>
+  
+    <div class="accordion">
+      <ng-container *ngFor="let item of items; let i = index">
+        <h3>
+          <button
+            class="title"
+            [ngClass]="{
+              active: isActive(i),
+              chevronRight: chevronPosition === 'right',
+              chevronLeft: chevronPosition === 'left'
+            }"
+            (click)="onTitleClick(i)"
+            (keydown)="onKeyDown($event, i)"
+            [attr.id]="groupName + '-heading-' + i"
+            [attr.aria-controls]="groupName + '-panel-' + i"
+            [attr.aria-expanded]="isActive(i)"
+          >
+            <ng-container *ngIf="chevronPosition === 'left'">
+              <svg *ngIf="!isActive(i)" aria-hidden="true" viewBox="0 0 20 20" width="20" height="20">
+                <path d="M8 5l5 5-5 5H8z" fill="currentColor" />
+              </svg>
+              <svg *ngIf="isActive(i)" aria-hidden="true" viewBox="0 0 20 20" width="20" height="20">
+                <path d="M5 12l5-5 5 5H5z" fill="currentColor" />
+              </svg>
+            </ng-container>
+  
+            <span>{{ item.title }}</span>
+  
+            <ng-container *ngIf="chevronPosition === 'right'">
+              <svg *ngIf="!isActive(i)" aria-hidden="true" viewBox="0 0 20 20" width="20" height="20">
+                <path d="M8 5l5 5-5 5H8z" fill="currentColor" />
+              </svg>
+              <svg *ngIf="isActive(i)" aria-hidden="true" viewBox="0 0 20 20" width="20" height="20">
+                <path d="M5 12l5-5 5 5H5z" fill="currentColor" />
+              </svg>
+            </ng-container>
+          </button>
+        </h3>
+  
+        <div
+          class="content"
+          [ngClass]="{
+            active: isActive(i),
+            contentLeftPad: chevronPosition === 'left'
+          }"
+          [attr.id]="groupName + '-panel-' + i"
+          role="region"
+          [attr.aria-labelledby]="groupName + '-heading-' + i"
+          [hidden]="!isActive(i)"
+        >
+          <p>{{ item.content }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+  
