@@ -5,46 +5,42 @@ const meta: Meta<TableSortableComponent> = {
   title: 'Tables/Sortable Table',
   component: TableSortableComponent,
   tags: ['autodocs'],
-  argTypes: {
-    sortable: {
-      control: 'select',
-      options: ['Sort', "Don't Sort"],
-      description: 'Enable or disable column sorting'
-    },
-    includeScope: {
-      control: 'boolean',
-      description: 'Include scope="col" for <th> elements'
-    },
-    iconVisibility: {
-      control: 'select',
-      options: ['Show icons', 'Show on hover / focus'],
-      description: 'Control when sort icons appear'
-    },
-    addRoleStatus: {
-      control: 'select',
-      options: ['Status Role', 'No Role'],
-      description: 'Add ARIA role="status" to caption help text'
-    },
-    customCaptionText: {
-      control: 'text',
-      description: 'Custom prefix text in caption help'
-    },
-    initialSortColumnID: {
-      control: 'number',
-      description: 'Initial column index to sort'
-    },
-    ariaDescription: {
-      control: 'text',
-      description: 'ARIA description for sortable buttons'
-    },
-    includeAriaDescription: {
-      control: 'boolean',
-      description: 'Enable or disable aria-description'
-    },
-    showDescriptionAll: {
-      control: 'select',
-      options: ['Yes', 'No'],
-      description: 'Show description only on unsorted columns or always'
+  parameters: {
+    docs: {
+      description: {
+        component: `
+**TableSortableComponent** is an accessible table with sortable columns.  
+It supports sorting via header buttons, icon visibility control, ARIA roles, and keyboard navigation.
+
+### Features
+- Sort columns via click or keyboard
+- Toggle icon visibility (always, hover/focus)
+- Status role for caption assistive announcement
+- Custom ARIA descriptions for accessibility
+- Optional initial sort state
+
+### Keyboard Support
+
+| Key         | Action                        |
+|-------------|-------------------------------|
+| Enter/Space | Sort selected column          |
+| Tab         | Navigate to next column       |
+| Shift+Tab   | Navigate to previous column   |
+
+### Props
+
+| Name                   | Type                                      | Description                                       |
+|------------------------|-------------------------------------------|---------------------------------------------------|
+| \`sortable\`            | \`'Sort' | "Don't Sort"\`                  | Toggle sortable headers                          |
+| \`iconVisibility\`      | \`'Show icons' | 'Show on hover / focus'\` | Control chevron visibility                       |
+| \`includeScope\`        | \`boolean\`                               | Add \`scope="col"\` to \`<th>\` tags               |
+| \`initialSortColumnID\` | \`number | null\`                         | Set default sort column index                    |
+| \`addRoleStatus\`       | \`'Status Role' | 'No Role'\`              | ARIA role on caption span                        |
+| \`ariaDescription\`     | \`string\`                                | Description for sortable buttons                 |
+| \`includeAriaDescription\` | \`boolean\`                           | Apply \`aria-description\` to sortable buttons    |
+| \`showDescriptionAll\`  | \`'Yes' | 'No'\`                         | Show description always or only when unsorted    |
+        `
+      }
     }
   }
 };

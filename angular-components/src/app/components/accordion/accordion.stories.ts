@@ -5,30 +5,27 @@ const meta: Meta<AccordionComponent> = {
   title: 'Components/Accordion',
   component: AccordionComponent,
   tags: ['autodocs'],
-  argTypes: {
-    multiExpand: {
-      control: 'radio',
-      options: ['Single', 'Multiple'],
-      description: 'Allow multiple accordions to be open at once',
-      defaultValue: 'Single'
-    },
-    chevronPosition: {
-      control: 'radio',
-      options: ['left', 'right'],
-      description: 'Position of the chevron',
-      defaultValue: 'right'
-    },
-    NamedRegionContainer: {
-      control: 'select',
-      options: [
-        'Contained in a named landmark region',
-        'Not contained in a named landmark region'
-      ],
-      description: 'Wrap the accordion in a named landmark region',
-      defaultValue: 'Contained in a named landmark region'
-    },
-    items: { table: { disable: true } },
-    groupName: { table: { disable: true } }
+  parameters: {
+    docs: {
+      description: {
+        component: `
+**AccordionComponent** is a fully accessible ARIA-compliant accordion that supports:
+
+- Single or multiple open sections
+- Left or right chevron icon
+- Full keyboard navigation (Enter, Space, Arrow keys, Home, End)
+- Optional wrapping in a named ARIA region
+
+### Keyboard Support
+
+| Key         | Action                            |
+|-------------|-----------------------------------|
+| Enter/Space | Toggle active section             |
+| Arrow Keys  | Navigate between headings         |
+| Home/End    | Jump to first/last heading        |
+        `
+      }
+    }
   }
 };
 

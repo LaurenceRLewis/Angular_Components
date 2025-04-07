@@ -1,18 +1,24 @@
 import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
-  "stories": [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  "addons": [
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions"
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions',
+    '@storybook/addon-a11y',        // ✅ Optional: Accessibility testing
+    '@storybook/addon-docs'         // ✅ Needed for Docs tab & markdown
   ],
-  "framework": {
-    "name": "@storybook/angular",
-    "options": {}
+  framework: {
+    name: '@storybook/angular',
+    options: {}
+  },
+  docs: {
+    autodocs: true                  // ✅ Enables auto-generated Docs tab
   }
 };
+
 export default config;

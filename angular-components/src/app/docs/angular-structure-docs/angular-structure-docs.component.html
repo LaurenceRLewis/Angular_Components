@@ -1,0 +1,55 @@
+<section class="docs">
+    <h1>Structural Directives & Semantic HTML</h1>
+    <p>
+      Angular provides structural directives like <code>*ngIf</code> and <code>*ngFor</code> for conditional and dynamic rendering.
+      When combined with semantic HTML and invisible containers like <code>&lt;ng-container&gt;</code>, you can build powerful and valid UI structures.
+    </p>
+  
+    <h2>Invisible Containers</h2>
+    <ul>
+      <li><strong>&lt;ng-container&gt;</strong> – no DOM output, great for logic grouping</li>
+      <li><strong>&lt;ng-template&gt;</strong> – defines templates rendered later with <code>*ngIf</code> or <code>ngTemplateOutlet</code></li>
+      <li><strong>&lt;ng-component&gt;</strong> – dynamically rendered shell (not manually used)</li>
+    </ul>
+  
+    <h2>Valid HTML Examples</h2>
+    <table>
+      <thead>
+        <tr><th>❌ Invalid</th><th>✅ Valid</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;table&gt;&lt;div *ngIf="x"&gt;</code></td>
+          <td><code>&lt;table&gt;&lt;ng-container *ngIf="x"&gt;</code></td>
+        </tr>
+        <tr>
+          <td><code>&lt;tr&gt;&lt;ng-container&gt;&lt;/ng-container&gt;&lt;/tr&gt;</code></td>
+          <td><code>&lt;tr *ngIf="row"&gt;...&lt;/tr&gt;</code></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Content Projection (Slots)</h2>
+    <p>
+      Angular’s <code>&lt;ng-content&gt;</code> is equivalent to Web Component slots. It allows custom, flexible content to be passed into a reusable layout.
+    </p>
+  
+    <pre><code>
+  &lt;section class="card"&gt;
+    &lt;ng-content select="[header]"&gt;&lt;/ng-content&gt;
+    &lt;ng-content select="[body]"&gt;&lt;/ng-content&gt;
+    &lt;ng-content select="[footer]"&gt;&lt;/ng-content&gt;
+  &lt;/section&gt;
+    </code></pre>
+  
+    <p>This keeps the component clean and adaptable for different consumers.</p>
+  
+    <h2>Maintainability Guidelines</h2>
+    <ul>
+      <li>Use <code>*ngFor</code> on valid, semantic tags (e.g. <code>&lt;tr&gt;</code>, <code>&lt;li&gt;</code>)</li>
+      <li>Use <code>&lt;ng-container&gt;</code> for logic, not layout</li>
+      <li>Don’t break table semantics with <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> between rows</li>
+      <li>Use <code>&lt;ng-content&gt;</code> to expose layout flexibility to consumers</li>
+    </ul>
+  </section>
+  
