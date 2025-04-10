@@ -1,4 +1,4 @@
-@use 'src/globals' as *;
+@import '../../../assets/css/globals';
 
 h2 {
     margin-bottom: 0.5rem;
@@ -80,17 +80,5 @@ h2 {
   
   .contentLeftPad {
     padding-left: 2.5rem;
-  }
-  
-  .chevron.chevronUp {
-    background-image: url('./assets/chevronUp.svg');
-  }
-  
-  .chevron.chevronDown {
-    background-image: url('./assets/chevronDown.svg');
-  }
-  
-  .chevron.sortNone {
-    background-image: url('./assets/chevronBoth.svg');
   }
   

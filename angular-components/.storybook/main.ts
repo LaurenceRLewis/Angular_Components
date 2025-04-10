@@ -18,7 +18,10 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true                  // ✅ Enables auto-generated Docs tab
-  }
+  },
+  staticDirs: [
+    { from: '../src/assets', to: '/assets' }
+  ],
 };
 
 export default config;

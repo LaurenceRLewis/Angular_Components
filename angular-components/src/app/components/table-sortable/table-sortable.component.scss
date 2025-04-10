@@ -1,4 +1,4 @@
-@use 'src/globals' as *;
+@import '../../../assets/css/globals';
 
 .table {
   width: 100%;
@@ -56,21 +56,18 @@
   top: 14px;
 }
 .chevron.chevronUp {
-  background-image: url('/assets/images/chevronUp.svg');
   background-size: cover;
   display: inline-block;
-  width: 16px;
+  width: 16px; 
   height: 16px;
 }
 .chevron.chevronDown {
-  background-image: url('/assets/images/chevronDown.svg');
   background-size: cover;
   display: inline-block;
   width: 16px;
   height: 16px;
 }
 .chevron.sortNone {
-  background-image: url('/assets/images/chevronBoth.svg');
   background-size: cover;
   display: inline-block;
   width: 14px;
@@ -78,4 +75,16 @@
   position: absolute;
   top: 14px;
   opacity: 0.5;
+}
+
+.chevron.chevronUp {
+  background-image: url('/assets/icons/chevronUp.svg');
+}
+
+.chevron.chevronDown {
+  background-image: url('/assets/icons/chevronDown.svg');
+}
+
+.chevron.sortNone {
+  background-image: url('/assets/icons/chevronBoth.svg');
 }
