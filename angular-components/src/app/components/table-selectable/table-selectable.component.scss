@@ -1,0 +1,32 @@
+@import '../../../assets/css/globals';
+
+.table {
+  width: auto;
+  max-width: 80em;
+  border-collapse: collapse;
+}
+
+.thead {
+  background-color: #f2f2f2;
+}
+
+.th,
+.td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.th {
+  font-weight: 700;
+}
+
+.input[type='checkbox'] {
+  margin: 0;
+  vertical-align: middle;
+  transform: scale(1.5);
+}
+
+.spacing {
+  margin-left: 0.5em;
+}

@@ -1,0 +1,8 @@
+{
+    "connector": { "name": "local" },
+    "extends": ["web-recommended"],
+    "hints": {
+      "axe/forms": "off"
+    }
+  }
+  
