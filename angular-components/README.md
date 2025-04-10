@@ -31,5 +31,5 @@ npm run storybook
 ng serve
 
 Build command: npm run build-storybook
-Publish directory: storybook-static
+Publish: netlify deploy --prod --dir=storybook-static
 Site name: angular-accessible-component-project

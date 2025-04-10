@@ -82,3 +82,15 @@ h2 {
     padding-left: 2.5rem;
   }
   
+  .chevron.chevronUp {
+    background-image: url('./assets/chevronUp.svg');
+  }
+  
+  .chevron.chevronDown {
+    background-image: url('./assets/chevronDown.svg');
+  }
+  
+  .chevron.sortNone {
+    background-image: url('./assets/chevronBoth.svg');
+  }
+  
