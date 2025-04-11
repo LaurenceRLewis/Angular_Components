@@ -1,0 +1,121 @@
+<section class="docs">
+    <h2>JAWS (Windows)</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>T</td><td>Move to the next table</td></tr>
+        <tr><td>Shift + T</td><td>Move to the previous table</td></tr>
+        <tr><td>Ctrl + Alt + Right Arrow</td><td>Move to the next cell in the row</td></tr>
+        <tr><td>Ctrl + Alt + Left Arrow</td><td>Move to the previous cell in the row</td></tr>
+        <tr><td>Ctrl + Alt + Down Arrow</td><td>Move to the cell below in the column</td></tr>
+        <tr><td>Ctrl + Alt + Up Arrow</td><td>Move to the cell above in the column</td></tr>
+        <tr><td>Ctrl + Alt + Home</td><td>Move to the first cell in the table</td></tr>
+        <tr><td>Ctrl + Alt + End</td><td>Move to the last cell in the table</td></tr>
+        <tr><td>Ctrl + Alt + Shift + Left Arrow</td><td>Move to the first cell in the current row</td></tr>
+        <tr><td>Ctrl + Alt + Shift + Right Arrow</td><td>Move to the last cell in the current row</td></tr>
+        <tr><td>Ctrl + Alt + Shift + Up Arrow</td><td>Move to the first cell in the current column</td></tr>
+        <tr><td>Ctrl + Alt + Shift + Down Arrow</td><td>Move to the last cell in the current column</td></tr>
+        <tr><td>Insert + Shift + Up Arrow</td><td>Read the current row</td></tr>
+        <tr><td>Insert + Shift + Home</td><td>Read from the start of the row to the current cell</td></tr>
+        <tr><td>Insert + Shift + Page Up</td><td>Read from the current cell to the end of the row</td></tr>
+        <tr><td>Insert + Shift + Numpad 5</td><td>Read the current column</td></tr>
+        <tr><td>Insert + Shift + End</td><td>Read from the top of the column to the current cell</td></tr>
+        <tr><td>Insert + Shift + Page Down</td><td>Read from the current cell to the bottom of the column</td></tr>
+        <tr><td>Ctrl + Alt + Numpad 5</td><td>Read the current cells row and column headers</td></tr>
+        <tr><td>Insert + Space, then T</td><td>Enter Table Layer for simplified table navigation commands</td></tr>
+        <tr><td>Insert + Ctrl + T</td><td>List all tables on the page</td></tr>
+        <tr><td>Ctrl</td><td>Stop speech output</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>NVDA (Windows)</h3>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>T</td><td>Move to the next table.</td></tr>
+        <tr><td>Shift + T</td><td>Move to the previous table.</td></tr>
+        <tr><td>Ctrl + Alt + Right Arrow</td><td>Move to the next cell in the row​</td></tr>
+        <tr><td>Ctrl + Alt + Left Arrow</td><td>Move to the previous cell in the row​</td></tr>
+        <tr><td>Ctrl + Alt + Down Arrow</td><td>Move to the cell below in the column​</td></tr>
+        <tr><td>Ctrl + Alt + Up Arrow</td><td>Move to the cell above in the column​​​</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>VoiceOver (macOS)</h3>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Control + Option + Command + T</td><td>Move to the next table. VoiceOver will announce the number of rows and columns (if available via semantic markup)</td></tr>
+        <tr><td>Control + Option + Right Arrow</td><td>Move to the next cell in the row</td></tr>
+        <tr><td>Control + Option + Left Arrow</td><td>Move to the previous cell in the row</td></tr>
+        <tr><td>Control + Option + Down Arrow</td><td>Move to the cell below in the column</td></tr>
+        <tr><td>Control + Option + Up Arrow</td><td>Move to the cell above in the column</td></tr>
+        <tr><td>Control + Option + R</td><td>Read entire row</td></tr>
+        <tr><td>Control + Option + R</td><td>Read entire column</td></tr>
+      </tbody>
+    </table>
+    
+    <h4>Best practice (needs testing for confirmation)</h4>
+    <p>VoiceOver reads the associated row or column headers if marked up correctly with scope, id, and headers.</p>
+    
+    <h3>VoiceOver (iOS)</h3>
+    <p>HTML tables involves finger gestures and the VoiceOver rotor. When VoiceOver focus lands on a table, it will announce the table and often its dimensions (e.g. “Table, 4 rows, 3 columns”).<br>
+    For more controlled navigation, use the Rotor. Rotate two fingers on the screen to choose table-specific navigation options.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Gesture</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Swipe Right</td><td>Move to the next cell in the row​</td></tr>
+        <tr><td>Swipe Left</td><td>Move to the previous cell in the row​</td></tr>
+        <tr><td>Rotor to "Tables", Swipe Down/Up</td><td>Jump to next/previous table on the page</td></tr>
+        <tr><td>Rotor to "Rows", Swipe Down</td><td>Move to the cell below in the column​</td></tr>
+        <tr><td>Rotor to "Rows", Swipe Up</td><td>Move to the cell above in the column</td></tr>
+        <tr><td>Explore by touch</td><td>Drag a finger across the table to hear cell contents (useful for randomly accessing cells by their spatial layout)</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>TalkBack (Android)</h3>
+    <p>TalkBack, the Android screen reader, lets users swipe through page elements, including tables. When focus moves into a table, TalkBack announces it as a table and usually reports the number of rows and columns (e.g. “Table with 5 rows and 3 columns”).​<br>
+    It also identifies headers: as you move through cells, TalkBack will prepend the associated header text to that cell's announcement if headers are present​</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Gesture</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Swipe Right</td><td>Move to next cell (in reading order)​</td></tr>
+        <tr><td>Swipe Left</td><td>Previous cell (move left to previous cell)​</td></tr>
+        <tr><td>Swipe Down/Up</td><td>(No direct vertical navigation by swipe – changes navigation granularity)</td></tr>
+        <tr><td>Explore by touch (drag finger)</td><td>Move to a specific cell above or below (manual touch navigation for vertical movement)​</td></tr>
+      </tbody>
+    </table>
+    
+    <p><strong>Note:</strong> TalkBack's local context menu (Reading Controls) can be opened with an angle gesture (up then right). This menu allows jumping by elements like headings, links, etc., but it does not provide a straightforward "next row" command for tables. The primary method to traverse tables is swiping horizontally through cells​.</p>    
+
+</section>

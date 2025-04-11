@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { TableSelectableComponent } from './table-selectable.component';
 
 const meta: Meta<TableSelectableComponent> = {
-  title: 'Tables/Table (Checkbox in cells)',
+  title: 'Tables/Table (Selectable)',
   component: TableSelectableComponent,
   tags: ['autodocs'],
   argTypes: {
