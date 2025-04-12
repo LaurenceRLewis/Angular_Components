@@ -1,15 +1,9 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { TableSearchComponent } from './table-search-component';
-import { TableSearchWrapperModule } from './table-search-wrapper.module';
 
 const meta: Meta<TableSearchComponent> = {
     title: 'Tables/Table (Search function)',
     component: TableSearchComponent,
-    decorators: [
-      moduleMetadata({
-        imports: [TableSearchWrapperModule], // ✅ use the wrapper module
-      }),
-    ],
     tags: ['autodocs'],
     argTypes: {
       containerRole: {
