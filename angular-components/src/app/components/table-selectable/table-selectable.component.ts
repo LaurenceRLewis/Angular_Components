@@ -1,4 +1,4 @@
-import { Component, Input, signal, computed } from '@angular/core';
+import { Component, Input, signal, computed, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface TableRow {
@@ -18,9 +18,11 @@ interface TableRow {
   styleUrls: ['./table-selectable.component.scss'],
   templateUrl: './table-selectable.component.html',
 })
-export class TableSelectableComponent {
+export class TableSelectableComponent implements AfterViewInit {
   @Input() disabledCheckboxes: string = '';
   @Input() defaultCheckedBoxes: string = '';
+
+  @ViewChild('selectAllCheckbox') selectAllCheckbox!: ElementRef<HTMLInputElement>;
 
   private readonly initialRows: Omit<TableRow, 'checked' | 'disabled'>[] = [
     { id: 0, name: 'John Doe', email: 'john.doe@example.com', dob: '02-07-1991', employeeID: '001' },
@@ -33,15 +35,8 @@ export class TableSelectableComponent {
   rows = signal<TableRow[]>([]);
 
   ngOnInit() {
-    const disabled = this.disabledCheckboxes
-      .split(',')
-      .map(id => parseInt(id.trim(), 10))
-      .filter(id => !isNaN(id));
-
-    const checked = this.defaultCheckedBoxes
-      .split(',')
-      .map(id => parseInt(id.trim(), 10))
-      .filter(id => !isNaN(id));
+    const disabled = this.disabledCheckboxes.split(',').map(id => parseInt(id.trim(), 10)).filter(id => !isNaN(id));
+    const checked = this.defaultCheckedBoxes.split(',').map(id => parseInt(id.trim(), 10)).filter(id => !isNaN(id));
 
     this.rows.set(
       this.initialRows.map(row => ({
@@ -52,13 +47,26 @@ export class TableSelectableComponent {
     );
   }
 
-  allChecked = computed(() =>
-    this.rows().every(row => row.checked || row.disabled)
-  );
+  ngAfterViewInit() {
+    this.updateIndeterminateState();
+  }
+
+  allChecked = computed(() => this.rows().every(row => row.checked || row.disabled));
+
+  someChecked = computed(() => {
+    const rows = this.rows();
+    const checkable = rows.filter(row => !row.disabled);
+    return checkable.some(row => row.checked) && !this.allChecked();
+  });
+
+  updateIndeterminateState() {
+    if (this.selectAllCheckbox) {
+      this.selectAllCheckbox.nativeElement.indeterminate = this.someChecked();
+    }
+  }
 
   onSelectAllChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const isChecked = input.checked;
+    const isChecked = (event.target as HTMLInputElement).checked;
 
     this.rows.update(rows =>
       rows.map(row => ({
@@ -66,16 +74,19 @@ export class TableSelectableComponent {
         checked: !row.disabled && isChecked,
       }))
     );
+
+    this.updateIndeterminateState();
   }
 
   onCheckboxChange(id: number, event: Event) {
-    const input = event.target as HTMLInputElement;
-    const isChecked = input.checked;
+    const isChecked = (event.target as HTMLInputElement).checked;
 
     this.rows.update(rows =>
       rows.map(row =>
         row.id === id ? { ...row, checked: isChecked } : row
       )
     );
+
+    this.updateIndeterminateState();
   }
 }

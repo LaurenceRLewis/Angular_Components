@@ -1,43 +1,45 @@
 <table class="table">
-    <caption>
-      <h2>Selectable table component</h2>
-    </caption>
-    <thead class="thead">
-      <tr>
-        <th id="selectAll" class="th">
-          <input
-            class="input"
-            type="checkbox"
-            aria-label="Select all rows"
-            [checked]="allChecked()"
-            (change)="onSelectAllChange($event)"
-          />
-          <span aria-hidden="true" class="spacing">Select all</span>
-        </th>
-        <th id="nameColumn" class="th">Name</th>
-        <th class="th">Email</th>
-        <th class="th">DOB</th>
-        <th id="employeeIDColumn" class="th">Employee ID</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of rows(); let i = index">
-        <td class="td">
-          <input
-            class="input"
-            type="checkbox"
-            [id]="'checkbox-' + row.id"
-            [attr.aria-labelledby]="'name-' + row.id + ' employeeIDColumn employeeID-' + row.id"
-            [disabled]="row.disabled"
-            [checked]="row.checked"
-            (change)="onCheckboxChange(row.id, $event)"
-          />
-        </td>
-        <th class="td" [id]="'name-' + row.id" scope="row">{{ row.name }}</th>
-        <td class="td">{{ row.email }}</td>
-        <td class="td">{{ row.dob }}</td>
-        <td class="td" [id]="'employeeID-' + row.id">{{ row.employeeID }}</td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <caption>
+    <h2>Selectable table component</h2>
+  </caption>
+  <thead class="thead">
+    <tr>
+      <th id="selectAll" class="th">
+        <input
+          #selectAllCheckbox
+          class="input"
+          type="checkbox"
+          aria-label="Select all rows"
+          [checked]="allChecked()"
+          (change)="onSelectAllChange($event)"
+        />
+        <span aria-hidden="true" class="spacing">Select all</span>
+      </th>
+      <th id="nameColumn" class="th">Name</th>
+      <th class="th">Email</th>
+      <th class="th">DOB</th>
+      <th id="employeeIDColumn" class="th">Employee ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows(); let i = index">
+      <td class="td">
+        <input
+          class="input"
+          type="checkbox"
+          [id]="'checkbox-' + row.id"
+          [attr.aria-labelledby]="
+            'name-' + row.id + ' employeeIDColumn employeeID-' + row.id
+          "
+          [disabled]="row.disabled"
+          [checked]="row.checked"
+          (change)="onCheckboxChange(row.id, $event)"
+        />
+      </td>
+      <th class="td" [id]="'name-' + row.id" scope="row">{{ row.name }}</th>
+      <td class="td">{{ row.email }}</td>
+      <td class="td">{{ row.dob }}</td>
+      <td class="td" [id]="'employeeID-' + row.id">{{ row.employeeID }}</td>
+    </tr>
+  </tbody>
+</table>
