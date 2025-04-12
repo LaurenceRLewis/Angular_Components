@@ -5,6 +5,37 @@ const meta: Meta<AccordionComponent> = {
   title: 'Components/Accordion',
   component: AccordionComponent,
   tags: ['autodocs'],
+  argTypes: {
+    multiExpand: {
+      name: "Open single or multiple sections",
+      control: "radio",
+      options: ["Single", "Multiple"],
+      defaultValue: "Single",
+      description: "Allow multiple accordions to be open at once",
+    },
+    chevronPosition: {
+      name: "Icon position",
+      control: "radio",
+      options: ["left", "right"],
+      defaultValue: "right",
+      description: "Position of the chevron",
+    },
+    items: {
+      table: { disable: true },
+    },
+    NamedRegionContainer: {
+      name: "Option to wrap accordion in a named region",
+      control: { type: "select" },
+      options: [
+        "Contained in a named landmark region",
+        "Not contained in a named landmark region",
+      ],
+      defaultValue: "Contained in a named landmark region",
+    },
+    groupName: {
+      table: { disable: true },
+    },
+  },
   parameters: {
     docs: {
       description: {
@@ -26,6 +57,7 @@ const meta: Meta<AccordionComponent> = {
         `
       }
     }
+    
   }
 };
 

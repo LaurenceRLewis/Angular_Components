@@ -7,14 +7,14 @@ const meta: Meta<TableSelectableComponent> = {
   tags: ['autodocs'],
   argTypes: {
     disabledCheckboxes: {
-      name: 'Set checkbox as disabled (starts at 0)',
-      control: 'text',
+      name: "Set checkbox as disabled (starts at position 0)",
+      control: "text",
     },
     defaultCheckedBoxes: {
-      name: 'Set checkbox as checked (starts at 0)',
-      control: 'text',
-    }
-  }
+      name: "Set checkbox as checked (starts at position 0)",
+      control: "text",
+    },
+  },
 };
 
 export default meta;
