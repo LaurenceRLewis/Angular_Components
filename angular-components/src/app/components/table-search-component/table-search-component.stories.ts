@@ -1,9 +1,15 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { TableSearchComponent } from './table-search-component';
+import { TableSearchWrapperModule } from './table-search-wrapper.module';
 
 const meta: Meta<TableSearchComponent> = {
     title: 'Tables/Table (Search function)',
     component: TableSearchComponent,
+    decorators: [
+      moduleMetadata({
+        imports: [TableSearchWrapperModule], // ✅ use the wrapper module
+      }),
+    ],
     tags: ['autodocs'],
     argTypes: {
       containerRole: {
@@ -14,23 +20,24 @@ const meta: Meta<TableSearchComponent> = {
           undefined: '(HTML) No role',
           search: '(ARIA) Has role search',
         },
+        description: 'Sets the ARIA role on the container element. Defaults to "search".',
       },
       inputType: {
-        name: 'Set type value',
+        name: 'Set input type value',
         control: { type: 'select' },
         options: ['search', 'text'],
         labels: {
-          search: 'type=search',
-          text: 'type=text',
+          text: 'input type text',
+          search: 'role search',
         },
       },
       inputRole: {
-        name: 'Set role on input',
+        name: 'Set explicit role on input',
         control: { type: 'select' },
         options: [undefined, 'searchbox'],
         labels: {
-          undefined: '(HTML) No role',
-          searchbox: '(ARIA) Has role searchbox',
+          type: 'select',
+          select: 'Adds search role',
         },
       },
     },

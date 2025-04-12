@@ -9,8 +9,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
-    '@storybook/addon-a11y',        // ✅ Optional: Accessibility testing
-    '@storybook/addon-docs'         // ✅ Needed for Docs tab & markdown
+    '@storybook/addon-docs'
   ],
   framework: {
     name: '@storybook/angular',

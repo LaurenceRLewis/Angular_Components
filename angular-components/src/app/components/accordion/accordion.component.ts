@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common'; // ✅ Import CommonModule
+import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true, // ✅ Mark as standalone
+  standalone: true,
   selector: 'app-accordion',
-  imports: [CommonModule], // ✅ Include CommonModule
+  imports: [CommonModule],
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss']
 })
