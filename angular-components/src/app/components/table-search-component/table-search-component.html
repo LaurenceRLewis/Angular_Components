@@ -8,7 +8,7 @@
         [(ngModel)]="searchTextVal"
         (input)="onInputChange()"
         (keydown)="onKeydown($event)"
-        [attr.role]="inputRole"
+        [attr.role]="inputRole !== 'No explicit role set' ? inputRole : null"
         aria-describedby="errorText helpText"
         [attr.aria-invalid]="isInputEmpty ? 'true' : null"
         [attr.aria-errormessage]="isInputEmpty ? 'errorText' : null"
@@ -52,7 +52,7 @@
     </table>
   </div>
   
-  <h3>The new HTML &lt;search&gt; element</h3>
+  <h3>The HTML &lt;search&gt; element</h3>
   <p>
     In browsers that lack support for the search element, the element will still be recognised, along
     with any attached attributes such as roles, IDs, and classes. It will act as a generic element,
@@ -61,4 +61,10 @@
     user has the experience as intended. When all browsers eventually provide support, the ARIA search
     role can be removed.
   </p>
-  
+
+  <h2>&lt;search> is Considered an Angular Component and Not a Recognised HTML5 Tag</h2>
+  <p>Angular’s template compiler enforces a strict schema that only recognizes a curated list of standard HTML elements. Although &lt;search> is a valid semantic HTML5 element, Angular does not include it in its internal list of known tags.</p>  <p>As a result:</p>
+  <ul>
+    <li>Angular interprets any unrecognized tag (like &lt;search>) as a custom Angular component.</li>
+    <li>If there is no matching component declared or imported, Angular throws an error like: 'search' is not a known element...</li>
+  </ul>

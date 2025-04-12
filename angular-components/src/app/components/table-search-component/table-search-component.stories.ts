@@ -2,20 +2,20 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { TableSearchComponent } from './table-search-component';
 
 const meta: Meta<TableSearchComponent> = {
-    title: 'Tables/Table (Search function)',
+    title: 'Tables/Table (Search)',
     component: TableSearchComponent,
     tags: ['autodocs'],
     argTypes: {
-      containerRole: {
-        name: 'Set role on container',
-        control: { type: 'select' },
-        options: [undefined, 'search'],
-        labels: {
-          undefined: '(HTML) No role',
-          search: '(ARIA) Has role search',
-        },
-        description: 'Sets the ARIA role on the container element. Defaults to "search".',
-      },
+      // containerRole: {
+      //   name: 'Set role on container',
+      //   control: { type: 'select' },
+      //   options: [undefined, 'search'],
+      //   labels: {
+      //     undefined: '(HTML) No role',
+      //     search: '(ARIA) Has role search',
+      //   },
+      //   description: 'Sets the ARIA role on the container element. Defaults to "search".',
+      // },
       inputType: {
         name: 'Set input type value',
         control: { type: 'select' },
@@ -28,12 +28,12 @@ const meta: Meta<TableSearchComponent> = {
       inputRole: {
         name: 'Set explicit role on input',
         control: { type: 'select' },
-        options: [undefined, 'searchbox'],
+        options: ['No explicit role set', 'searchbox'], // ✅ No more undefined here
         labels: {
-          type: 'select',
-          select: 'Adds search role',
+          'No explicit role set': 'No explicit role set',
+          searchbox: 'Adds searchbox role',
         },
-      },
+      },            
     },
   };  
 
@@ -42,8 +42,7 @@ type Story = StoryObj<TableSearchComponent>;
 
 export const SearchTable: Story = {
   args: {
-    containerRole: 'search',
-    inputType: 'search',
-    inputRole: undefined,
+    inputRole: 'No explicit role set', // ✅ string sentinel
   },
 };
+
