@@ -1,0 +1,64 @@
+<div class="container">
+    <div [attr.role]="containerRole" class="searchContainer">
+      <label for="searchInput" class="label">Filter table</label>
+      <input
+        type="{{ inputType }}"
+        id="searchInput"
+        class="input"
+        [(ngModel)]="searchTextVal"
+        (input)="onInputChange()"
+        (keydown)="onKeydown($event)"
+        [attr.role]="inputRole"
+        aria-describedby="errorText helpText"
+        [attr.aria-invalid]="isInputEmpty ? 'true' : null"
+        [attr.aria-errormessage]="isInputEmpty ? 'errorText' : null"
+        autocomplete="off"
+        #inputEl
+        (ngModelChange)="bindInput(inputEl)"
+      />
+      <button type="button" class="button searchButton" (click)="onSearch()">Search</button>
+      <button type="button" class="button clearButton" (click)="onClear()">Clear</button>
+    </div>
+  
+    <p id="helpText" class="helpText">
+      Press Enter or click the Search button to activate.
+    </p>
+  
+    <div id="errorText" *ngIf="isInputEmpty" class="errorText">
+      Error: Input cannot be empty.
+    </div>
+  
+    <p class="resultText">
+      Showing {{ searchResults.length }} of {{ allResults.length }} table rows.
+    </p>
+  
+    <table class="table searchTable">
+      <thead>
+        <tr>
+          <th>Given name</th>
+          <th>Last name</th>
+          <th>Mobile number</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of searchResults">
+          <td>{{ item.givenName }}</td>
+          <td>{{ item.lastName }}</td>
+          <td>{{ item.mobileNumber }}</td>
+          <td>{{ item.id }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <h3>The new HTML &lt;search&gt; element</h3>
+  <p>
+    In browsers that lack support for the search element, the element will still be recognised, along
+    with any attached attributes such as roles, IDs, and classes. It will act as a generic element,
+    akin to a &lt;div&gt;. For this reason, it's advisable to append an ARIA search role to the
+    &lt;div&gt; element for the moment. By employing &lt;div role="search"&gt;, you ensure that every
+    user has the experience as intended. When all browsers eventually provide support, the ARIA search
+    role can be removed.
+  </p>
+  

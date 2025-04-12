@@ -1,0 +1,77 @@
+@import "../../../.storybook/utils/global.css";
+
+.container {
+  margin: 1.25em;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25em;
+}
+
+.label {
+  margin-right: 0.625em;
+  font-weight: bold;
+  display: block;
+}
+
+.input {
+  padding: 0.3125em;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+}
+
+.button {
+  padding: 0.3125em 0.625em;
+  background-color: #800080;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-top-right-radius: 0.3125em;
+  border-bottom-right-radius: 0.3125em;
+}
+
+.clearButton {
+  margin-left: 0.25em;
+  border-radius: 0.3125em;
+  width: 3.7em;
+}
+
+.searchButton {
+  width: 4.7em;
+}
+
+.helpText {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 0.3125em;
+}
+
+.resultText {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 0.625em;
+}
+
+.table.searchTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.25em;
+}
+
+.table.searchTable th,
+.table.searchTable td {
+  border: 1px solid #ccc;
+  padding: 0.625em;
+}
+
+.table.searchTable th {
+  background-color: #800080;
+  color: #fff;
+}
+
+.errorText {
+  color: rgb(134, 10, 10);
+  font-size: 1rem;
+}
