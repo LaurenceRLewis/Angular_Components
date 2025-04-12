@@ -53,13 +53,7 @@
   </div>
   
   <h3>The HTML &lt;search&gt; element</h3>
-  <p>
-    In browsers that lack support for the search element, the element will still be recognised, along
-    with any attached attributes such as roles, IDs, and classes. It will act as a generic element,
-    akin to a &lt;div&gt;. For this reason, it's advisable to append an ARIA search role to the
-    &lt;div&gt; element for the moment. By employing &lt;div role="search"&gt;, you ensure that every
-    user has the experience as intended. When all browsers eventually provide support, the ARIA search
-    role can be removed.
+  <p>The &lt;search&gt; element is a semantic HTML5 tag that represents a section of a page intended for performing search functionality. Typically, it contains a form or input field used to search the site or a specific document. While visually similar to a &lt;div&gt; or &lt;form&gt;, the &lt;search&gt; tag provides additional semantic meaning to assistive technologies and search engines by explicitly indicating that its content is related to search operations. It can be used as an alternative to adding role="search" to a generic container element, promoting cleaner and more meaningful markup. However, browser and framework support may vary, and fallback strategies are often necessary in environments like Angular that do not recognize &lt;search&gt; as a native tag.
   </p>
 
   <h2>&lt;search> is Considered an Angular Component and Not a Recognised HTML5 Tag</h2>
