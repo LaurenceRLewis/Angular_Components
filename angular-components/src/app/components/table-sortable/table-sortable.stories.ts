@@ -65,7 +65,7 @@ export const SortableTable: Story = {
       control: 'select',
       options: ['Show icons', 'Show on hover / focus'],
       description: 'Control visibility of the sorting icons',
-      defaultValue: 'Show on hover / focus'
+      defaultValue: 'Show icons'
     },
     customCaptionText: {
       name: 'Caption help text',
